@@ -125,11 +125,11 @@
 		html2canvas(document.querySelector("#haibao")).then(canvas => {
     	document.body.appendChild(canvas);
     	var oCavans = document.getElementsByTagName("canvas")[0];
-		// var strDataURI1 = oCavans.toDataURL();
-		// console.log(strDataURI1);
-		// tp.style.display = "block";
-    	// tp.src = strDataURI1;
-    	// document.getElementById('ZheZhao').style.display = "block";
+		var strDataURI1 = oCavans.toDataURL();
+		console.log(strDataURI1);
+		tp.style.display = "block";
+    	tp.src = strDataURI1;
+    	document.getElementById('ZheZhao').style.display = "block";
     	
 	});
 	}
