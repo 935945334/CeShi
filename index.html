@@ -70,6 +70,7 @@
 		#ZheZhao{
 			background:#fff;
 			position: fixed;
+			opacity:0.7;
 			width: 100vw;
 			height: 100vh;
 			display: none;
@@ -87,8 +88,11 @@
 			border-bottom: 2px solid #000;
 		}
 		#tp{
+			position: absolute;
 			background:#eee;
-			width: 10vw;
+			width: 90vw;
+			top: 50px;
+			/*margin-top: 50px;*/
 			/*height: 100px;*/
 
 		}
@@ -114,14 +118,16 @@
 <script>
 	function Btn(){
 		console.log("生成");
-		
+
 		html2canvas(document.querySelector("#haibao")).then(canvas => {
     	document.body.appendChild(canvas);
-    	document.getElementById('ZheZhao').style.display = "block";
     	var oCavans = document.getElementsByTagName("canvas")[0];
 		var strDataURI1 = oCavans.toDataURL();
 		console.log(strDataURI1);
     	tp.src = strDataURI1;
+    	document.getElementById('ZheZhao').style.display = "block";
+    	document.getElementById('T-1').borderBottom = "0px solid #000";
+    	document.getElementById('T-2').borderBottom = "0px solid #000";
 	});
 	}
 	function Num(){
@@ -164,13 +170,3 @@
 
 
 
-
-
-html2canvas(document.querySelector("#capture")).then(canvas => {
-  // 创建一个图片元素
-  var img = new Image();
-  img.src = canvas.toDataURL("image/png");
- 
-  // 将图片添加到文档中
-  document.body.appendChild(img);
-});
