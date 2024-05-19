@@ -20,7 +20,6 @@
 		#haibao{
 			width: 100vw;
 			height: 178vw;
-
 			background:url(1.png);
 			background-size:100vw;
 			display: -webkit-flex;
@@ -38,8 +37,6 @@
 			border: 4px solid black;
 			margin-top: 40px;
 			padding: 10px;
-			text-shadow:0 0 3px #000;
-			display: none;
 		}
 		#text-2{
 			font-size: 160px;
@@ -52,11 +49,8 @@
 			display: flex;
 			-webkit-justify-content: center;
 			justify-content: center;
-			/*display: none;*/
 		}
 		#Btn{
-			/*width: 100px;*/
-			/*height: 30px;*/
 			display: -webkit-flex;
 			display: flex;
 			-webkit-justify-content: center;
@@ -72,23 +66,25 @@
 			position: fixed;
 			top: 20px;
 			z-index: 10;
-			/*border: 4px solid black;*/
-
 		}
 		#ZheZhao{
 			background:#fff;
-			/*background:#000;*/
-			/*opacity: 0.7;*/
 			position: fixed;
 			width: 100vw;
 			height: 100vh;
 			display: none;
 		}
-		#myInput{
+		input{
 			position: fixed;
 			width: 40vw;
 			height: 40px;
-			display: none;
+			pointer-events: none;
+			opacity: 0;
+		}
+		span{
+			min-width:60px;
+			display: inline-block;
+			border-bottom: 2px solid #000;
 		}
 	</style>
 </head>
@@ -96,27 +92,23 @@
 	<div id="ZheZhao"></div>
 	<div id="haibao">
 		<div id="text-1">
-			在那一天，浓雾封锁了一切。
-			在那一天，他成为了一艘幽灵船的船长
+			在<span id="T-1" onclick="t1();">那一天</span>，浓雾封锁了一切。
+			在<span id="T-2" onclick="t2();">那一天</span>，他成为了一艘幽灵船的船长
 		</div>
 		<div id="text-2" onclick="Num();">
 			点击
 		</div>
 	</div>
 	<div id="Btn" onclick="Btn();">生成按钮</div>
-	<!-- <label for="myTextInput">请输入您的姓名：</label> -->
-    <input type="text" id="myInput" oninput="syncToDiv(this.value)" placeholder="Enter text here" />
+    <input type="text" id="myInput" oninput="syncToDiv(this.value)" placeholder="输入数字" />
+    <input type="text" id="myInput1" oninput="syncToDiv1(this.value)" placeholder="输入第一行" />
+    <input type="text" id="myInput2" oninput="syncToDiv2(this.value)" placeholder="输入第二行" />
 </body>
 <script>
 	function Btn(){
 		console.log("生成");
 		html2canvas(document.querySelector("#haibao")).then(canvas => {
     	document.body.appendChild(canvas);
-    	// var parent = document.getElementById('BO');
-    	// var div = parent.getElementsByTagName('canvas')[0];
-    	// console.log(div);
-    	// div.style.width = "9em";
-    	// div.style.height = "16em";
     	document.getElementById('ZheZhao').style.display = "block";
 	});
 	}
@@ -129,7 +121,29 @@
 	function syncToDiv(value) {
 		document.getElementById('text-2').textContent = value;
 	}
+	function syncToDiv1(value) {
+		document.getElementById('T-1').textContent = value;
+	}
+	function syncToDiv2(value) {
+		document.getElementById('T-2').textContent = value;
+	}
+	function t1() {
+		console.log("1");
+		document.getElementById('myInput1').style.display = "block";
+		document.getElementById('myInput1').focus();
+	}
+	function t2() {
+		console.log("2");
+		document.getElementById('myInput2').style.display = "block";
+		document.getElementById('myInput2').focus();
+	}
 	document.getElementById('myInput').addEventListener('blur', function() {
+		this.style.display = 'none';
+	});
+	document.getElementById('myInput1').addEventListener('blur', function() {
+		this.style.display = 'none';
+	});
+	document.getElementById('myInput2').addEventListener('blur', function() {
 		this.style.display = 'none';
 	});
 </script>
