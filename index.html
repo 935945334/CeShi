@@ -86,8 +86,15 @@
 			/*display: inline-block;*/
 			border-bottom: 2px solid #000;
 		}
+		#tp{
+			background:#eee;
+			width: 10vw;
+			/*height: 100px;*/
+
+		}
 	</style>
 </head>
+<img src="1.png" alt="" id="tp">
 <body id="BO">
 	<div id="ZheZhao"></div>
 	<div id="haibao">
@@ -107,9 +114,14 @@
 <script>
 	function Btn(){
 		console.log("生成");
+		
 		html2canvas(document.querySelector("#haibao")).then(canvas => {
     	document.body.appendChild(canvas);
     	document.getElementById('ZheZhao').style.display = "block";
+    	var oCavans = document.getElementsByTagName("canvas")[0];
+		var strDataURI1 = oCavans.toDataURL();
+		console.log(strDataURI1);
+    	tp.src = strDataURI1;
 	});
 	}
 	function Num(){
@@ -154,3 +166,11 @@
 
 
 
+html2canvas(document.querySelector("#capture")).then(canvas => {
+  // 创建一个图片元素
+  var img = new Image();
+  img.src = canvas.toDataURL("image/png");
+ 
+  // 将图片添加到文档中
+  document.body.appendChild(img);
+});
