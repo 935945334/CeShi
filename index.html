@@ -64,8 +64,9 @@
 		canvas{
 			font-size: 10vw;
 			position: fixed;
-			top: 20px;
+			top: 2000px;
 			z-index: 10;
+			opacity:0;
 		}
 		#ZheZhao{
 			background:#000;
@@ -74,6 +75,7 @@
 			width: 100vw;
 			height: 100vh;
 			display: none;
+			z-index: 98;
 		}
 		input{
 			position: fixed;
@@ -118,17 +120,17 @@
 <script>
 	function Btn(){
 		console.log("生成");
-
+		document.getElementById('T-1').style.borderBottom = "0px solid #000";
+    	document.getElementById('T-2').style.borderBottom = "0px solid #000";
 		html2canvas(document.querySelector("#haibao")).then(canvas => {
     	document.body.appendChild(canvas);
     	var oCavans = document.getElementsByTagName("canvas")[0];
-		var strDataURI1 = oCavans.toDataURL();
-		console.log(strDataURI1);
-		tp.style.display = "block";
-    	tp.src = strDataURI1;
-    	document.getElementById('ZheZhao').style.display = "block";
-    	document.getElementById('T-1').borderBottom = "0px solid #000";
-    	document.getElementById('T-2').borderBottom = "0px solid #000";
+		// var strDataURI1 = oCavans.toDataURL();
+		// console.log(strDataURI1);
+		// tp.style.display = "block";
+    	// tp.src = strDataURI1;
+    	// document.getElementById('ZheZhao').style.display = "block";
+    	
 	});
 	}
 	function Num(){
