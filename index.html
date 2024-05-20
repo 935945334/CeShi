@@ -91,12 +91,16 @@
 		}
 		#tp{
 			position: absolute;
-			background:#eee;
 			width: 90vw;
 			top: 50px;
 			z-index: 99;
 			display: none;
 
+		}
+		#sctp{
+			position: fixed;
+			width: 90px;
+			top: 500px;
 		}
 	</style>
 </head>
@@ -111,6 +115,7 @@
 		<div id="text-2" onclick="Num();">
 			点击
 		</div>
+		<img src="1.png" alt="" id="sctp">
 	</div>
 	<div id="Btn" onclick="Btn();">生成按钮</div>
     <input type="text" id="myInput" oninput="syncToDiv(this.value)" placeholder="输入数字" />
