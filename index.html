@@ -27,6 +27,11 @@
   			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   			margin: 30px;
 		}
+		#btn{
+			background: #000;
+			width: 80px; /* 子元素宽高可选（动态宽高也生效） */
+  			height: 60px;
+		}
 	</style>
 </head>
 <body>
@@ -35,13 +40,24 @@
 		<div id="text2">2</div>	
 		<!-- <div class="text3">3</div> -->
 		<!-- <div class="text4">4</div> -->
+		<div id="btn"></div>
 	</div>
 </body>
 <script>
-	const viewportWidth = document.documentElement.clientWidth;
-	const viewportHeight = document.documentElement.clientHeight;
-	document.getElementById("text1").innerHTML = viewportWidth;
-	document.getElementById("text2").innerHTML = viewportHeight;
+	var BTN = document.getElementById("btn")
+	// const viewportWidth = document.documentElement.clientWidth;
+	// const viewportHeight = document.documentElement.clientHeight;
+	// document.getElementById("text1").innerHTML = viewportWidth;
+	// document.getElementById("text2").innerHTML = viewportHeight;
+	BTN.onclick = function() {
+  const viewportWidth = document.documentElement.clientWidth;
+		const viewportHeight = document.documentElement.clientHeight;
+  		document.getElementById("text1").innerHTML = viewportWidth;
+		document.getElementById("text2").innerHTML = viewportHeight;
+};
+	setTimeout(() => {
+		
+	}, 5000); // 5000 毫秒 = 5 秒
 </script>
 <script src="html2canvas.js"></script>
 </html>
